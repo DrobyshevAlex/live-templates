@@ -65,3 +65,51 @@ class $NAME$BLoC extends Bloc<$NAME$Event, $NAME$State> {
   }
 }
 ```
+
+# Шаблоны для BLoC VS Code
+
+```
+{
+	"blocFreezed": {
+		"scope": "dart, flutter",
+		"prefix": "blocFreezed",
+		"body": [
+			"import 'package:bloc/bloc.dart';",
+			"import 'package:freezed_annotation/freezed_annotation.dart';",
+			"",
+			"part '${TM_FILENAME_BASE}.freezed.dart';",
+			"",
+			"@freezed ",
+			"class ${NAME}Event with _$$${NAME}Event {",
+			"  const ${NAME}Event._();",
+			"",
+			"  const factory ${NAME}Event.request() = Request${NAME}Event;",
+			"",
+			"}",
+			"",
+			"@freezed",
+			"class ${NAME}State with _$$${NAME}State {",
+			"  const ${NAME}State._();",
+			"",
+			"  const factory ${NAME}State.initial() = Initial${NAME}State;",
+			"}",
+			"",
+			"class ${NAME}BLoC extends Bloc<${NAME}Event, ${NAME}State> {",
+			"  ${NAME}BLoC() : super(const Initial${NAME}State());",
+			"",
+			"  @override",
+			"  Stream<${NAME}State> mapEventToState(${NAME}Event event) =>",
+			"    event.when<Stream<${NAME}State>>(",
+			"      request: _request,",
+			"  );",
+			"",
+			"  Stream<${NAME}State> _request() async* {",
+			"    // ...",
+			"  }",
+			"",
+			"}",
+      ""
+		]
+	}
+}
+```
