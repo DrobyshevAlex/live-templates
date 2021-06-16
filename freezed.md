@@ -86,7 +86,7 @@ abstract class $NAME$ with _$$$NAME$ {
       "part '${TM_FILENAME_BASE}.freezed.dart';",
       "",
       "@freezed",
-      "class ${NAME} with _$$${NAME} {",
+      "class ${NAME} with _$${NAME} {",
       "  const factory ${NAME}({",
       "      required int id,",
       "      ${END}",
@@ -111,13 +111,13 @@ abstract class $NAME$ with _$$$NAME$ {
       "part '${TM_FILENAME_BASE}.g.dart';",
       "",
       "@freezed",
-      "class ${NAME} with _$$${NAME} {",
+      "class ${NAME} with _$${NAME} {",
       "  const factory ${NAME}({",
       "      required int id,",
       "      ${END}",
       "  }) = _${NAME};",
       "",
-      "  factory ${NAME}.fromJson(Map<String, dynamic> json) => _$$${NAME}FromJson(json);",
+      "  factory ${NAME}.fromJson(Map<String, dynamic> json) => _$${NAME}FromJson(json);",
       "}"
     ]
   }
@@ -138,7 +138,7 @@ abstract class $NAME$ with _$$$NAME$ {
       "part '${TM_FILENAME_BASE}.g.dart';",
       "",
       "@freezed",
-      "class ${NAME} with _$$${NAME} {",
+      "class ${NAME} with _$${NAME} {",
       "  const $NAME$._();",
       "",
       "  const factory ${NAME}.a({",
@@ -151,7 +151,7 @@ abstract class $NAME$ with _$$$NAME$ {
       "      ${END}",
       "  }) = _${NAME}B;",
       "",
-      "  factory ${NAME}.fromJson(Map<String, dynamic> json) => _$$${NAME}FromJson(json);",
+      "  factory ${NAME}.fromJson(Map<String, dynamic> json) => _$${NAME}FromJson(json);",
       "}"
     ]
   }
