@@ -113,3 +113,50 @@ class $NAME$BLoC extends Bloc<$NAME$Event, $NAME$State> {
 	}
 }
 ```
+
+# Шаблоны для BLoC 8 VS Code
+
+```
+{
+	"bloc8Freezed": {
+		"scope": "dart, flutter",
+		"prefix": "bloc8Freezed",
+		"body": [
+			"import 'package:bloc/bloc.dart';",
+			"import 'package:freezed_annotation/freezed_annotation.dart';",
+			"",
+			"part '${TM_FILENAME_BASE}.freezed.dart';",
+			"",
+			"@freezed ",
+			"class ${NAME}Event with _$${NAME}Event {",
+			"  const ${NAME}Event._();",
+			"",
+			"  const factory ${NAME}Event.request() = _Request${NAME}Event;",
+			"",
+			"}",
+			"",
+			"@freezed",
+			"class ${NAME}State with _$${NAME}State {",
+			"  const ${NAME}State._();",
+			"",
+			"  const factory ${NAME}State.initial() = _Initial${NAME}State;",
+			"}",
+			"",
+			"class ${NAME}BLoC extends Bloc<${NAME}Event, ${NAME}State> {",
+			"  ${NAME}BLoC() : super(const ${NAME}State.initial()) {",
+			"    on<${NAME}Event>(",
+			"      (event, emitter) async {",
+			"        await event.map<Future<void>>(",
+			"          request: (event) => _request(event, emitter),",
+			"        );",
+			"      },",
+			"    );",
+			"  }",
+			"",
+			"  Future<void> _request(_Request${NAME}Event event,",
+      "      Emitter<${NAME}State> emitter) async {}",
+			"}",
+      ""
+		]
+	}
+}
