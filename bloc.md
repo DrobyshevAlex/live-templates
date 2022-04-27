@@ -160,3 +160,32 @@ class $NAME$BLoC extends Bloc<$NAME$Event, $NAME$State> {
 		]
 	}
 }
+```
+
+# Шаблоны для BLoC Scope VS Code
+
+```
+{
+	"blocScope": {
+		"scope": "dart, flutter",
+		"prefix": "blocScope",
+		"body": [
+			"import 'package:flutter/material.dart';",
+			"import 'package:flutter_bloc/flutter_bloc.dart';",
+			"",
+			"@immutable",
+			"class ${NAME}Scope extends StatelessWidget {",
+			"  const ${NAME}Scope({Key? key, required this.child}) : super(key: key);",
+			"  final Widget child;",
+			"",
+			"  @override",
+			"  Widget build(BuildContext context) => BlocProvider<${NAME}BLoC>(",
+			"    create: (context) => ${NAME}BLoC(context.read<${REPO}Repository>()),",
+			"    child: child,",
+			"  );",
+			"}",
+      ""
+		]
+	}
+}
+```
